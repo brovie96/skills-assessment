@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- TODO: put css and js links in here once I make those -->
+        <!-- TODO: put css link in here once I make it -->
+        <script src="contact-list.js"></script>
     </head>
 
-    <body>
-        <div class="outer-box">
-            <div class="top-bar">Contacts</div>
-            <table class="contacts-table">
+    <body onload="loaded()">
+        <div id="outer-box">
+            <div id="top-bar">Contacts</div>
+            <table id="contacts-table">
                 <tr>
                     <td class="name">Christian</td>
-                    <td class="data">christian@yahoo.com</td>
+                    <td class="data"><span class="email">christian@yahoo.com</span><span class="phone" style="display:none">(555) 555-0555</span></td>
                 </tr>
                 <tr>
                     <td class="name">Rich</td>
-                    <td class="data">rich@tripod.com</td>
+                    <td class="data"><span class="email">rich@tripod.com</span><span class="phone" style="display:none">(555) 555-0555</span></td>
                 </tr>
                 <tr>
                     <td class="name">Scott</td>
-                    <td class="data">scott@mailinator.com</td>
+                    <td class="data"><span class="email">scott@mailinator.com</span><span class="phone" style="display:none">(555) 555-0555</span></td>
                 </tr>
                 <tr>
                     <td class="name">Danny</td>
-                    <td class="data">danny@hotmail.com</td>
+                    <td class="data"><span class="email">danny@hotmail.com</span><span class="phone" style="display:none">(555) 555-0555</span></td>
                 </tr>
                 <tr>
                     <td class="name">Taka</td>
-                    <td class="data">taka@myspace.com</td>
+                    <td class="data"><span class="email">taka@myspace.com</span><span class="phone" style="display:none">(555) 555-0555</span></td>
                 </tr>
                 <tr>
                     <td class="name">Tim</td>
-                    <td class="data">tim@netscape.com</td>
+                    <td class="data"><span class="email">tim@netscape.com</span><span class="phone" style="display:none">(555) 555-0555</span></td>
                 </tr>
                 <tr>
                     <td class="name">Patrick</td>
-                    <td class="data">patrick@live.com</td>
+                    <td class="data"><span class="email">patrick@live.com</span><span class="phone" style="display:none">(555) 555-0555</span></td>
                 </tr>
                 <tr>
                     <td class="name">Jacques</td>
-                    <td class="data">jacques@aol.com</td>
+                    <td class="data"><span class="email">jacques@aol.com</span><span class="phone" style="display:none">(555) 555-0555</span></td>
                 </tr>
             </table>
-            <div class="bottom-bar">
+            <div id="bottom-bar">
                 <select id="data-select">
-                    <option id="email">Email address</option>
-                    <option id="phone">Phone number</option>
+                    <option value="email">Email address</option>
+                    <option value="phone">Phone number</option>
                 </select>
             </div>
         </div>
