@@ -1,3 +1,68 @@
+#outer-box {
+    color: white;
+    height: 30em;
+    width: 22.5em;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+#top-bar, #bottom-bar {
+    background-color: #111111;
+    height: 13.63%;
+    width: 100%;
+    display: inline-block;
+}
+
+#bottom-bar {
+    text-align: right;
+}
+
+#top-bar h4 {
+    margin-left: 1em;
+    margin-right: 1em;
+    position: relative;
+    top: 12.5%;
+    display: inline-block;
+}
+
+#bottom-bar select {
+    position: relative;
+    top: 37.5%;
+    margin-right: 1em;
+    display: inline-block;
+}
+
+#contacts-table {
+    height: 72.72%;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#contacts-table, #contacts-table th, #contacts-table td {
+  border: 1px solid black;
+}
+
+#contacts-table tr:nth-child(even) {
+    background-color: #070707;
+}
+
+#contacts-table tr:nth-child(odd) {
+    background-color: #101010;
+}
+
+#contacts-table td {
+    padding-left: 1em;
+}
+
+#contacts-table .name {
+    width: 33%;
+}
+
+#contacts-table .data {
+    width: 67%;
+    color: #505050;
+}
+
 .phone {
     display: none;
 }
