@@ -32,33 +32,44 @@
     display: inline-block;
 }
 
-#contacts-table {
+#table-holder {
+    position: relative;
     height: 72.72%;
+    width: 100%;
+}
+
+#contacts-table {
+    height: 100%;
     width: 100%;
     border-collapse: collapse;
 }
 
-#contacts-table, #contacts-table th, #contacts-table td {
+#overlay-table {
+    border-collapse: collapse;
+}
+
+#contacts-table, #contacts-table th, #contacts-table td,
+#overlay-table, #overlay-table th, #overlay-table td {
   border: 1px solid black;
 }
 
 #contacts-table tr:nth-child(even) {
-    background-color: #070707;
-}
-
-#contacts-table tr:nth-child(odd) {
     background-color: #101010;
 }
 
-#contacts-table td {
+#contacts-table tr:nth-child(odd) {
+    background-color: #181818;
+}
+
+#contacts-table td, #overlay-table td {
     padding-left: 1em;
 }
 
-#contacts-table .name {
+#contacts-table .name, #overlay-table .name {
     width: 33%;
 }
 
-#contacts-table .data {
+#contacts-table .data, #overlay-table .data {
     width: 67%;
     color: #505050;
 }
@@ -84,4 +95,15 @@
 
 .busy-circle {
     background-color: #ff0000;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-color: rgba(0,0,0,.75);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
