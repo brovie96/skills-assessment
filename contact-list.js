@@ -64,7 +64,7 @@ function open(tr) {
     div.setAttribute("id", "overlay-tables");
     div.append(nameTable);
     div.append(dataTable);
-    div.style.left = nameTable.style.left;
+    div.style.left = left;
     div.style.top = top;
     var overlay = document.createElement("DIV");
     overlay.classList.add("overlay");
