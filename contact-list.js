@@ -32,8 +32,6 @@ function dataChange(){
     }
 }
 
-
-
 function open(tr) {
     var nameTd = tr.querySelector(".name").cloneNode(true);
     var nameTr = document.createElement("TR");
@@ -70,6 +68,17 @@ function open(tr) {
     overlay.classList.add("overlay");
     document.getElementById("table-holder").appendChild(div);
     document.getElementById("table-holder").appendChild(overlay);
+    rect = dataTable.getBoundingClientRect();
+    rect2 = document.querySelector("#bottom-bar").getBoundingClientRect();
+    if(rect.bottom > rect2.top) {
+        console.log("in block");
+        var dataTableHeight = rect.bottom - rect.top;
+        var rect3 = nameTable.getBoundingClientRect()
+        var nameTableHeight = rect3.bottom - rect3.top;
+        var divTop = parseInt(div.style.top.substr(0, div.style.top.length - 2));
+        div.style.top = (divTop - dataTableHeight + nameTableHeight) + "px";
+        nameTable.style.top = dataTableHeight - nameTableHeight + "px";
+    }
     openDiv = div;
     trOpen = true;
 }
