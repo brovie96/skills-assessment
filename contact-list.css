@@ -44,13 +44,22 @@
     border-collapse: collapse;
 }
 
-#overlay-table {
+#overlay-tables {
+    position: absolute;
+    z-index: 2;
+}
+
+#overlay-tables table {
+    position: absolute;
     border-collapse: collapse;
 }
 
-#contacts-table, #contacts-table th, #contacts-table td,
-#overlay-table, #overlay-table th, #overlay-table td {
-  border: 1px solid black;
+#contacts-table, #contacts-table th, #contacts-table td {
+    border: 1px solid black;
+}
+
+#overlay-tables table, #overlay-tables th, #overlay-tables td {
+    border: 0px;
 }
 
 #contacts-table tr:nth-child(even) {
@@ -61,17 +70,26 @@
     background-color: #181818;
 }
 
-#contacts-table td, #overlay-table td {
+#contacts-table td, #overlay-tables td {
     padding-left: 1em;
 }
 
-#contacts-table .name, #overlay-table .name {
+#overlay-tables td {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#contacts-table .name, #overlay-tables .name {
     width: 33%;
 }
 
-#contacts-table .data, #overlay-table .data {
+#contacts-table .data {
     width: 67%;
     color: #505050;
+}
+
+#overlay-tables .data {
+    width: 67%;
 }
 
 .phone {

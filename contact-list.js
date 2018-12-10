@@ -1,7 +1,7 @@
 var dataSelect;
 var table;
 var trOpen = false;
-var openTr = null;
+var openDiv = null;
 
 function loaded() {
     dataSelect = document.getElementById("data-select");
@@ -32,34 +32,52 @@ function dataChange(){
     }
 }
 
+
+
 function open(tr) {
-    var trClone = tr.cloneNode(true);
-    openTr = trClone;
-    trOpen = true;
-    trClone.style.backgroundColor = "#555555";
-    trClone.querySelector(".data").style.color = "white";
-    var table = document.createElement("TABLE");
-    table.addEventListener("click", closeTr);
-    table.appendChild(trClone);
-    table.style.position = "absolute";
-    table.style.zIndex = 70;
-    var rect = tr.getBoundingClientRect();
-    var rect2 = tr.closest("table").getBoundingClientRect();
-    table.style.left = (rect.left - rect2.left) + "px";
-    table.style.top = (rect.top - rect2.top) + "px";
-    table.style.width = (rect.right - rect.left) + "px";
-    table.style.height = (rect.bottom - rect.top) + "px";
-    table.setAttribute("id", "overlay-table");
+    var nameTd = tr.querySelector(".name").cloneNode(true);
+    var nameTr = document.createElement("TR");
+    var nameTable = document.createElement("TABLE");
     var div = document.createElement("DIV");
-    div.classList.add("overlay");
-    document.getElementById("table-holder").appendChild(table);
+    nameTr.append(nameTd);
+    nameTr.style.backgroundColor = "#555555";
+    nameTable.append(nameTr);
+    var rect = tr.querySelector(".name").getBoundingClientRect();
+    var rect2 = tr.closest("table").getBoundingClientRect();
+    var left = (rect.left - rect2.left) + "px";
+    var top = (rect.top - rect2.top) + "px";
+    nameTable.style.width = (rect.right - rect.left) + "px";
+    nameTable.style.height = (rect.bottom - rect.top) + "px";
+    var dataTd = tr.querySelector(".name").cloneNode(true);
+    var dataTr = document.createElement("TR");
+    var dataTable = document.createElement("TABLE");
+    dataTd.innerHTML = "<a href=\"mailto:" + tr.querySelector(".email").innerHTML + "\">" + tr.querySelector(".email").innerHTML + "</a><br><br>";
+    dataTd.innerHTML += tr.querySelector(".phone").innerHTML + "<br><br>";
+    dataTd.innerHTML += "6539 Wilton Ave.<br>Culver City, CA 90234";
+    dataTr.append(dataTd);
+    dataTr.style.backgroundColor = "#555555";
+    dataTable.append(dataTr);
+    rect = tr.querySelector(".data").getBoundingClientRect();
+    dataTable.style.left = (rect.left - rect2.left) + "px";
+    dataTable.style.width = (rect.right - rect.left) + "px";
+    div.addEventListener("click", closeTr);
+    div.setAttribute("id", "overlay-tables");
+    div.append(nameTable);
+    div.append(dataTable);
+    div.style.left = nameTable.style.left;
+    div.style.top = top;
+    var overlay = document.createElement("DIV");
+    overlay.classList.add("overlay");
     document.getElementById("table-holder").appendChild(div);
+    document.getElementById("table-holder").appendChild(overlay);
+    openDiv = div;
+    trOpen = true;
 }
 
 function closeTr() {
-    var tr = openTr;
-    openTr = null;
-    tr.closest("table").remove();
+    var div = openDiv;
+    openDiv = null;
+    div.remove();
     document.querySelector(".overlay").remove();
     trOpen = false;
 }
