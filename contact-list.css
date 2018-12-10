@@ -66,3 +66,22 @@
 .phone {
     display: none;
 }
+
+.circle {
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.active-circle {
+    background-color: #00ff00;
+}
+
+.away-circle {
+    background-color: #ffff00;
+}
+
+.busy-circle {
+    background-color: #ff0000;
+}
